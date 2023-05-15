@@ -33,15 +33,17 @@ public class QuickSort {
     
     private int trocas;
     
-    public int[] ordenaQuickSort(int[] arr, int n, int m, int k){
+    public double[] ordenaQuickSort(int[] arr, int n, int m, int k){
         this.acessos = 0;
         this.comparacoes = 0;
         this.pivots = 0;
         this.trocas = 0;
         
+        double startTime = System.nanoTime();
+        
         this.quickSort(arr, 0, n-1, k, m);
         
-        int estats[] = {this.acessos, this.comparacoes, this.pivots, this.trocas};
+        double estats[] = {System.nanoTime() - startTime, this.acessos, this.comparacoes, this.pivots, this.trocas};
         
         return estats;
     }

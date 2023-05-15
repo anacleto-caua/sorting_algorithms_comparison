@@ -24,9 +24,26 @@ import java.util.Random;
 public class QuickSort {
   
     private static Random random = new Random();
-
-    public void ordenaQuickSort(int[] arr, int n, int m, int k){
+    
+    private int acessos;
+    
+    private int comparacoes;
+    
+    private int pivots;
+    
+    private int trocas;
+    
+    public int[] ordenaQuickSort(int[] arr, int n, int m, int k){
+        this.acessos = 0;
+        this.comparacoes = 0;
+        this.pivots = 0;
+        this.trocas = 0;
+        
         this.quickSort(arr, 0, n-1, k, m);
+        
+        int estats[] = {this.acessos, this.comparacoes, this.pivots, this.trocas};
+        
+        return estats;
     }
     
     public void quickSort(int[] arr, int s, int n, int k, int m) {
@@ -57,18 +74,23 @@ public class QuickSort {
                 pivotIndex = random.nextInt(n-s) + s;
                 break;
         }
+        this.pivots++;
         
         int pivot = arr[pivotIndex];
         int i = s, j = n;
         while (i <= j) {
             while (arr[i] < pivot) {
                 i++;
+                this.comparacoes++;
             }
             while (arr[j] > pivot) {
                 j--;
+                this.comparacoes++;
             }
+            
             if (i <= j) {
                 swap(arr, i, j);
+                this.trocas++;
                 i++;
                 j--;
             }

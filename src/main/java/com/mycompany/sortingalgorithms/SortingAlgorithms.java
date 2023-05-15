@@ -71,18 +71,20 @@ public class SortingAlgorithms {
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
                            {
-                               switch(l)
-                               {
-                                   case 0:
-                                       qs.ordenaQuickSort(v500, v500.length, 30, k);
-                                       break;
-                                   case 1:
-                                       qs.ordenaQuickSort(v500, v500.length, 100, k);
-                                       break;
-                                   case 2:
-                                       qs.ordenaQuickSort(v500, v500.length, (int)v500.length/3, k);
-                                       break;
-                               }
+                                int m = 0;
+                                switch(l)
+                                {
+                                    case 0:
+                                        m = 30;
+                                        break;
+                                    case 1:
+                                         m = 100;
+                                        break;
+                                    case 2:
+                                         m = (int)v500.length/3;
+                                        break;
+                                }
+                                qs.ordenaQuickSort(v500, v500.length, m, k);
                            }
                        }
                        
@@ -102,20 +104,20 @@ public class SortingAlgorithms {
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
                            {
-                               
-                               switch(l)
-                               {
-                                   case 0:
-                                       qs.ordenaQuickSort(v2k, v2k.length, 30, k);
-                                       break;
-                                   case 1:
-                                       qs.ordenaQuickSort(v2k, v2k.length, 100, k);
-                                       break;
-                                   case 2:
-                                       qs.ordenaQuickSort(v2k, v2k.length, (int)v2k.length/3, k);
-                                       break;
-                               }
-                               
+                               int m = 0;
+                                switch(l)
+                                {
+                                    case 0:
+                                        m = 30;
+                                        break;
+                                    case 1:
+                                        m =100;
+                                        break;
+                                    case 2:
+                                        m = (int)v2k.length/3;
+                                        break;
+                                }
+                                qs.ordenaQuickSort(v2k, v2k.length, m, k);
                            }
                        }
                        
@@ -133,21 +135,21 @@ public class SortingAlgorithms {
                            
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
-                           {
-                               
+                           {    
+                               int m = 0;
                                switch(l)
                                {
                                    case 0:
-                                       qs.ordenaQuickSort(v5k, v5k.length, 30, k);
+                                       m = 30;
                                        break;
                                    case 1:
-                                       qs.ordenaQuickSort(v5k, v5k.length, 100, k);
+                                       m = 100;
                                        break;
                                    case 2:
-                                       qs.ordenaQuickSort(v5k, v5k.length, (int)v5k.length/3, k);
+                                       m = (int)v5k.length/3;
                                        break;
                                }
-                               
+                               qs.ordenaQuickSort(v5k, v5k.length, m, k);
                            }
                        }
                        
@@ -166,20 +168,20 @@ public class SortingAlgorithms {
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
                            {
-                               
+                               int m = 0;
                                switch(l)
                                {
                                    case 0:
-                                       qs.ordenaQuickSort(v10k, v10k.length, 30, k);
+                                       m = 30;
                                        break;
                                    case 1:
-                                       qs.ordenaQuickSort(v10k, v10k.length, 100, k);
+                                        m = 100;
                                        break;
                                    case 2:
-                                       qs.ordenaQuickSort(v10k, v10k.length, (int)v10k.length/3, k);
+                                       m = (int)v10k.length/3;
                                        break;
                                }
-                               
+                               qs.ordenaQuickSort(v10k, v10k.length, m, k);
                            }
                        }
                        
@@ -198,20 +200,20 @@ public class SortingAlgorithms {
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
                            {
-                               
+                               int m = 0;
                                switch(l)
                                {
                                    case 0:
-                                       qs.ordenaQuickSort(v30k, v30k.length, 30, k);
+                                       m = 30;
                                        break;
                                    case 1:
-                                       qs.ordenaQuickSort(v30k, v30k.length, 100, k);
+                                       m = 100;
                                        break;
                                    case 2:
-                                       qs.ordenaQuickSort(v30k, v30k.length, (int)v30k.length/3, k);
+                                       m = (int)v30k.length/3;
                                        break;
                                }
-                               
+                                qs.ordenaQuickSort(v30k, v30k.length, m, k);   
                            }
                        }
                        
@@ -230,20 +232,20 @@ public class SortingAlgorithms {
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
                            {
-                               
+                               int m = 0;
                                switch(l)
                                {
                                    case 0:
-                                       qs.ordenaQuickSort(v50k, v50k.length, 30, k);
+                                       m = 30;
                                        break;
                                    case 1:
-                                       qs.ordenaQuickSort(v50k, v50k.length, 100, k);
+                                       m = 100;
                                        break;
                                    case 2:
-                                       qs.ordenaQuickSort(v50k, v50k.length, (int)v50k.length/3, k);
+                                       m = (int)v50k.length/3;
                                        break;
                                }
-                               
+                               qs.ordenaQuickSort(v50k, v50k.length, m, k);
                            }
                        }
                        
@@ -262,20 +264,20 @@ public class SortingAlgorithms {
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
                            {
-                               
+                               int m = 0;
                                switch(l)
                                {
                                    case 0:
-                                       qs.ordenaQuickSort(v100k, v100k.length, 30, k);
+                                       m = 30;
                                        break;
                                    case 1:
-                                       qs.ordenaQuickSort(v100k, v100k.length, 100, k);
+                                       m = 100;
                                        break;
                                    case 2:
-                                       qs.ordenaQuickSort(v100k, v100k.length, (int)v100k.length/3, k);
+                                       m = (int)v100k.length/3;
                                        break;
                                }
-                               
+                               qs.ordenaQuickSort(v100k, v100k.length, m, k);
                            }
                        }
                        
@@ -294,20 +296,20 @@ public class SortingAlgorithms {
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
                            {
-                               
+                               int m = 0;
                                switch(l)
                                {
                                    case 0:
-                                       qs.ordenaQuickSort(v150k, v150k.length, 30, k);
+                                       m = 30;
                                        break;
                                    case 1:
-                                       qs.ordenaQuickSort(v150k, v150k.length, 100, k);
+                                       m = 100;
                                        break;
                                    case 2:
-                                       qs.ordenaQuickSort(v150k, v150k.length, (int)v150k.length/3, k);
+                                       m = (int)v150k.length/3;
                                        break;
                                }
-                               
+                               qs.ordenaQuickSort(v150k, v150k.length, m, k);
                            }
                        }
                        
@@ -326,18 +328,21 @@ public class SortingAlgorithms {
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
                            {
+                               int m = 0;
                                switch(l)
                                {
                                    case 0:
-                                       qs.ordenaQuickSort(v200k, v200k.length, 30, k);
+                                       m = 30;
                                        break;
                                    case 1:
-                                       qs.ordenaQuickSort(v200k, v200k.length, 100, k);
+                                       m = 100;
                                        break;
                                    case 2:
-                                       qs.ordenaQuickSort(v200k, v200k.length, (int)v200k.length/3, k);
+                                       m = (int)v200k.length/3;
                                        break;
                                }
+                                qs.ordenaQuickSort(v200k, v200k.length, m, k);
+
                            }
                        }
                        
@@ -356,20 +361,20 @@ public class SortingAlgorithms {
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
                            {
-                               
+                               int m = 0;
                                switch(l)
                                {
                                    case 0:
-                                       qs.ordenaQuickSort(v250k, v250k.length, 30, k);
+                                       m = 30;
                                        break;
                                    case 1:
-                                       qs.ordenaQuickSort(v250k, v250k.length, 100, k);
+                                       m = 100;
                                        break;
                                    case 2:
-                                       qs.ordenaQuickSort(v250k, v250k.length, (int)v250k.length/3, k);
+                                       m = (int)v250k.length/3;
                                        break;
                                }
-                               
+                               qs.ordenaQuickSort(v250k, v250k.length, m, k);
                            }
                        }
                        
@@ -387,20 +392,20 @@ public class SortingAlgorithms {
                            //passa por todos os valores de m
                            for(int l = 0; l < 3; l++)
                            {
-                               
+                               int m = 0;
                                switch(l)
                                {
                                    case 0:
-                                       qs.ordenaQuickSort(v300k, v300k.length, 30, k);
+                                       m = 0;
                                        break;
                                    case 1:
-                                       qs.ordenaQuickSort(v300k, v300k.length, 100, k);
+                                       m = 100;
                                        break;
                                    case 2:
-                                       qs.ordenaQuickSort(v300k, v300k.length, (int)v300k.length/3, k);
+                                       m = (int)v300k.length/3;
                                        break;
                                }
-                               
+                               qs.ordenaQuickSort(v300k, v300k.length, m, k);
                            }
                        }
                        

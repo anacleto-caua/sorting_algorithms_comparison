@@ -36,6 +36,7 @@ public class QuickSort {
         
         if(n-s <= m){
             this.insertionSort(arr, s, n);
+            return;
         }
         
         int pivotIndex = 0;
@@ -47,7 +48,7 @@ public class QuickSort {
                 pivotIndex = n;
                 break;
             case 2:
-                pivotIndex = n-s/2;
+                pivotIndex = ((n-s)/2)+s;
                 break;
             case 3:
                 pivotIndex = medianaTresValores(random.nextInt(n-s) + s, random.nextInt(n-s) + s, random.nextInt(n-s) + s);
@@ -55,7 +56,8 @@ public class QuickSort {
             case 4:
                 pivotIndex = random.nextInt(n-s) + s;
                 break;
-       }
+        }
+        
         int pivot = arr[pivotIndex];
         int i = s, j = n;
         while (i <= j) {

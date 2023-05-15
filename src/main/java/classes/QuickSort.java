@@ -25,10 +25,19 @@ public class QuickSort {
   
     private static Random random = new Random();
 
-    public void quickSort(int[] arr, int s, int n, int k) {
+    public void ordenaQuickSort(int[] arr, int n, int m, int k){
+        this.quickSort(arr, 0, n-1, k, m);
+    }
+    
+    public void quickSort(int[] arr, int s, int n, int k, int m) {
         if (s >= n) {
           return;
         }
+        
+        if(n-s <= m){
+            this.insertionSort(arr, s, n);
+        }
+        
         int pivotIndex = 0;
         switch(k){
             case 0:
@@ -62,8 +71,8 @@ public class QuickSort {
                 j--;
             }
         }
-        quickSort(arr, s, j, k);
-        quickSort(arr, i, n, k);
+        quickSort(arr, s, j, k, m);
+        quickSort(arr, i, n, k, m);
       }
 
     private void swap(int[] arr, int i, int j) {
@@ -79,5 +88,23 @@ public class QuickSort {
             return b;
         }
         return c;
+    }
+    
+    public static void insertionSort(int[] arr, int s, int n) {
+        if (arr == null || arr.length == 0 || s >= n || s < 0 || n >= arr.length) {
+            return;
+        }
+
+        for (int i = s + 1; i <= n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+
+            while (j >= s && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+
+            arr[j + 1] = key;
+        }
     }
 }

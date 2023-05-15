@@ -43,11 +43,34 @@ public class SortingAlgorithms {
         }
     }
     
+    //inicializa todas as posições do vetor de valores como 0
+    public static void inicializaVetorValores(double[][][][] valores)
+    {
+        for(int i = 0; i < valores.length; i++)
+        {
+            for(int j = 0; j < valores[i].length; j++)
+            {
+                for(int k = 0; k < valores[i][j].length; k++)
+                {
+                    for(int l = 0; l < valores[i][j][k].length; l++)
+                    {
+                        valores[i][j][k][l] = 0;
+                    }
+                }
+            }
+        }
+    }
+    
     public static void main(String[] args) {
         
-        int[] vetor = new int[30000];
+        int[] vetor = new int[300000];
         
         QuickSort qs = new QuickSort();
+        
+        //matriz usada para salvar os valores de tempo, acessos, comparações,
+        //trocas e alterações de pivô. Esses valores serão usados para calcular
+        //a media.
+        double[][][][] valores = new double[11][5][3][5];
         
         //roda 100x para calcular as medias
        for(int i = 0; i < 100; i++)
@@ -84,7 +107,13 @@ public class SortingAlgorithms {
                                          m = (int)v500.length/3;
                                         break;
                                 }
-                                qs.ordenaQuickSort(v500, v500.length, m, k);
+                                double[] aux = qs.ordenaQuickSort(v500, v500.length, m, k);
+                                valores[0][k][l][0] = valores[0][k][l][0] + aux[0];
+                                valores[0][k][l][1] = valores[0][k][l][1] + aux[1];
+                                valores[0][k][l][2] = valores[0][k][l][2] + aux[2];
+                                valores[0][k][l][3] = valores[0][k][l][3] + aux[3];
+                                valores[0][k][l][4] = valores[0][k][l][4] + aux[4];
+                                
                            }
                        }
                        
@@ -117,7 +146,13 @@ public class SortingAlgorithms {
                                         m = (int)v2k.length/3;
                                         break;
                                 }
-                                qs.ordenaQuickSort(v2k, v2k.length, m, k);
+                                double[] aux = qs.ordenaQuickSort(v2k, v2k.length, m, k);
+                                
+                                valores[1][k][l][0] = valores[1][k][l][0] + aux[0];
+                                valores[1][k][l][1] = valores[1][k][l][1] + aux[1];
+                                valores[1][k][l][2] = valores[1][k][l][2] + aux[2];
+                                valores[1][k][l][3] = valores[1][k][l][3] + aux[3];
+                                valores[1][k][l][4] = valores[1][k][l][4] + aux[4];
                            }
                        }
                        
@@ -149,7 +184,13 @@ public class SortingAlgorithms {
                                        m = (int)v5k.length/3;
                                        break;
                                }
-                               qs.ordenaQuickSort(v5k, v5k.length, m, k);
+                               double[] aux = qs.ordenaQuickSort(v5k, v5k.length, m, k);
+                               
+                               valores[2][k][l][0] = valores[2][k][l][0] + aux[0];
+                               valores[2][k][l][1] = valores[2][k][l][1] + aux[1];
+                               valores[2][k][l][2] = valores[2][k][l][2] + aux[2];
+                               valores[2][k][l][3] = valores[2][k][l][3] + aux[3];
+                               valores[2][k][l][4] = valores[2][k][l][4] + aux[4];
                            }
                        }
                        
@@ -181,7 +222,15 @@ public class SortingAlgorithms {
                                        m = (int)v10k.length/3;
                                        break;
                                }
-                               qs.ordenaQuickSort(v10k, v10k.length, m, k);
+                               double[] aux = qs.ordenaQuickSort(v10k, v10k.length, m, k);
+                               
+                               valores[3][k][l][0] = valores[3][k][l][0] + aux[0];
+                               valores[3][k][l][1] = valores[3][k][l][1] + aux[1];
+                               valores[3][k][l][2] = valores[3][k][l][2] + aux[2];
+                               valores[3][k][l][3] = valores[3][k][l][3] + aux[3];
+                               valores[3][k][l][4] = valores[3][k][l][4] + aux[4];
+                               
+                               
                            }
                        }
                        
@@ -213,7 +262,13 @@ public class SortingAlgorithms {
                                        m = (int)v30k.length/3;
                                        break;
                                }
-                                qs.ordenaQuickSort(v30k, v30k.length, m, k);   
+                               double[] aux = qs.ordenaQuickSort(v30k, v30k.length, m, k); 
+                                
+                               valores[4][k][l][0] = valores[4][k][l][0] + aux[0];
+                               valores[4][k][l][1] = valores[4][k][l][1] + aux[1];
+                               valores[4][k][l][2] = valores[4][k][l][2] + aux[2];
+                               valores[4][k][l][3] = valores[4][k][l][3] + aux[3];
+                               valores[4][k][l][4] = valores[4][k][l][4] + aux[4];
                            }
                        }
                        
@@ -245,7 +300,13 @@ public class SortingAlgorithms {
                                        m = (int)v50k.length/3;
                                        break;
                                }
-                               qs.ordenaQuickSort(v50k, v50k.length, m, k);
+                               double[] aux = qs.ordenaQuickSort(v50k, v50k.length, m, k);
+                               
+                               valores[5][k][l][0] = valores[5][k][l][0] + aux[0];
+                               valores[5][k][l][1] = valores[5][k][l][1] + aux[1];
+                               valores[5][k][l][2] = valores[5][k][l][2] + aux[2];
+                               valores[5][k][l][3] = valores[5][k][l][3] + aux[3];
+                               valores[5][k][l][4] = valores[5][k][l][4] + aux[4];
                            }
                        }
                        
@@ -277,7 +338,13 @@ public class SortingAlgorithms {
                                        m = (int)v100k.length/3;
                                        break;
                                }
-                               qs.ordenaQuickSort(v100k, v100k.length, m, k);
+                               double[] aux = qs.ordenaQuickSort(v100k, v100k.length, m, k);
+                               
+                               valores[6][k][l][0] = valores[6][k][l][0] + aux[0];
+                               valores[6][k][l][1] = valores[6][k][l][1] + aux[1];
+                               valores[6][k][l][2] = valores[6][k][l][2] + aux[2];
+                               valores[6][k][l][3] = valores[6][k][l][3] + aux[3];
+                               valores[6][k][l][4] = valores[6][k][l][4] + aux[4];
                            }
                        }
                        
@@ -309,7 +376,13 @@ public class SortingAlgorithms {
                                        m = (int)v150k.length/3;
                                        break;
                                }
-                               qs.ordenaQuickSort(v150k, v150k.length, m, k);
+                               double[] aux = qs.ordenaQuickSort(v150k, v150k.length, m, k);
+                               
+                               valores[7][k][l][0] = valores[7][k][l][0] + aux[0];
+                               valores[7][k][l][1] = valores[7][k][l][1] + aux[1];
+                               valores[7][k][l][2] = valores[7][k][l][2] + aux[2];
+                               valores[7][k][l][3] = valores[7][k][l][3] + aux[3];
+                               valores[7][k][l][4] = valores[7][k][l][4] + aux[4];
                            }
                        }
                        
@@ -341,7 +414,13 @@ public class SortingAlgorithms {
                                        m = (int)v200k.length/3;
                                        break;
                                }
-                                qs.ordenaQuickSort(v200k, v200k.length, m, k);
+                               double[] aux = qs.ordenaQuickSort(v200k, v200k.length, m, k);
+                                
+                               valores[8][k][l][0] = valores[8][k][l][0] + aux[0];
+                               valores[8][k][l][1] = valores[8][k][l][1] + aux[1];
+                               valores[8][k][l][2] = valores[8][k][l][2] + aux[2];
+                               valores[8][k][l][3] = valores[8][k][l][3] + aux[3];
+                               valores[8][k][l][4] = valores[8][k][l][4] + aux[4];
 
                            }
                        }
@@ -374,7 +453,13 @@ public class SortingAlgorithms {
                                        m = (int)v250k.length/3;
                                        break;
                                }
-                               qs.ordenaQuickSort(v250k, v250k.length, m, k);
+                               double[] aux = qs.ordenaQuickSort(v250k, v250k.length, m, k);
+                               
+                               valores[9][k][l][0] = valores[9][k][l][0] + aux[0];
+                               valores[9][k][l][1] = valores[9][k][l][1] + aux[1];
+                               valores[9][k][l][2] = valores[9][k][l][2] + aux[2];
+                               valores[9][k][l][3] = valores[9][k][l][3] + aux[3];
+                               valores[9][k][l][4] = valores[9][k][l][4] + aux[4];
                            }
                        }
                        
@@ -405,7 +490,13 @@ public class SortingAlgorithms {
                                        m = (int)v300k.length/3;
                                        break;
                                }
-                               qs.ordenaQuickSort(v300k, v300k.length, m, k);
+                               double[] aux = qs.ordenaQuickSort(v300k, v300k.length, m, k);
+                               
+                               valores[10][k][l][0] = valores[10][k][l][0] + aux[0];
+                               valores[10][k][l][1] = valores[10][k][l][1] + aux[1];
+                               valores[10][k][l][2] = valores[10][k][l][2] + aux[2];
+                               valores[10][k][l][3] = valores[10][k][l][3] + aux[3];
+                               valores[10][k][l][4] = valores[10][k][l][4] + aux[4];
                            }
                        }
                        

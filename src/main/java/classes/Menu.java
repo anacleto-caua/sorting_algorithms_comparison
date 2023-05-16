@@ -9,7 +9,11 @@ package classes;
  * @author Administrador
  */
 public class Menu {
-    //mostra os resultados
+    /**
+     * valores - matriz de valores
+     * vetorOriginal - vetor desordenado
+     * vetorOrdenado - vetor ordenado
+     */
     public void show(double[][][][] valores, int[] vetorOriginal, int[] vetorOrdenado)
     {
         System.out.println("ORDENACAO QUICK SORT");
@@ -360,7 +364,11 @@ public class Menu {
         }
     }
     
-    //imprime o vetor
+    /**
+     * 
+     * vetor - vetor que sera impresso
+     * n - posicao ate a qual o vetor sera impresso 
+     */
     public void imprimeVetor(int vetor[], int n)
     {
         for(int i = 0; i < n; i++)

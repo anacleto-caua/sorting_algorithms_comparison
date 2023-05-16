@@ -7,26 +7,35 @@ package com.mycompany.sortingalgorithms;
 import classes.Menu;
 import classes.QuickSort;
 import java.util.Random;
-//BOLSONARO
+
 /**
  *
  * @author cauaa
  */
 public class SortingAlgorithms {
     
-    //gera um vetor de 300.000 posicoes
-    public static void geraVetor(int[] vetor)
+    /**
+     * preenche um vetor com numeros aleatorios de 1 a 1000
+     * 
+     * vetor - vetor que sera preenchido
+     */
+    public static void preencheVetor(int[] vetor)
     {
         Random r = new Random();
         
         
         for(int i = 0; i < vetor.length; i++)
         {
-            //gera valores aleatorios entre 1 e o tamanho do vetor, que no caso é 300000
+            //gera valores aleatorios entre 1 e o tamanho do vetor, que no caso é 1000
             vetor[i] = r.nextInt(1000) + 1;
         }
     }
     
+    /**
+     * vetor - vetor original
+     * particao - vetor que armazenara o intervalo de 0 a tam do vetor original
+     * tam - tamanho da particao
+     */
     public static void particionaVetor(int[] vetor, int[] particao, int tam)
     {
         for(int i = 0; i < tam; i++)
@@ -35,7 +44,7 @@ public class SortingAlgorithms {
         }
     }
     
-    //inicializa todas as posições do vetor de valores como 0
+    //inicializa todas as posicoes da matriz de valores como 0
     public static void inicializaVetorValores(double[][][][] valores)
     {
         for(int i = 0; i < valores.length; i++)
@@ -62,11 +71,23 @@ public class SortingAlgorithms {
         
         QuickSort qs = new QuickSort();
         
+        //vetor usado pelo menu para imprimir o vetor ordenado no final
         int[] vetorOrdenado = new int[500];
         
-        //matriz usada para salvar os valores de tempo, acessos, comparações,
-        //trocas e alterações de pivô. Esses valores serão usados para calcular
-        //a media.
+        /**
+         * matriz usada para salvar os valores de tempo, acessos, comparações,
+         * trocas e alterações de pivô para cada vetor. esses valores serao
+         * usados para calcular a media.
+         * 
+         * valores[0:11] - vetores de 500 a 300000
+         * valores[][0:4] - possibilidades de pivo
+         * valores[][][0:3] - possibilidades de M
+         * valores[][][][0] - tempo em ms
+         * valores[][][][1] - acessos
+         * valores[][][][2] - comparacoes
+         * valores[][][][3] - pivos
+         * valores[][][][4] - trocas
+         */
         double[][][][] valores = new double[11][5][3][5];
         
         //coloca os valores iniciais do vetor valores como sendo 0
@@ -75,7 +96,7 @@ public class SortingAlgorithms {
         //roda 100x para calcular as medias
        for(int i = 0; i < 100; i++)
        {
-           geraVetor(vetor);
+           preencheVetor(vetor);
            
            //passa pelas 11 opções de tamanho do vetor
            for(int j = 0; j < 11; j++)

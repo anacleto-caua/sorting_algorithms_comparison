@@ -4,6 +4,7 @@
 
 package com.mycompany.sortingalgorithms;
 
+import classes.Menu;
 import classes.QuickSort;
 import java.util.Random;
 //BOLSONARO
@@ -23,15 +24,6 @@ public class SortingAlgorithms {
         {
             //gera valores aleatorios entre 1 e o tamanho do vetor, que no caso é 300000
             vetor[i] = r.nextInt(1000) + 1;
-        }
-    }
-    
-    //imprime o vetor
-    public static void imprimeVetor(int vetor[], int n)
-    {
-        for(int i = 0; i < n; i++)
-        {
-            System.out.print(vetor[i] + ", ");
         }
     }
     
@@ -65,12 +57,20 @@ public class SortingAlgorithms {
         
         int[] vetor = new int[300000];
         
+        //usado para imprimir os valores
+        Menu menu = new Menu();
+        
         QuickSort qs = new QuickSort();
+        
+        int[] vetorOrdenado = new int[500];
         
         //matriz usada para salvar os valores de tempo, acessos, comparações,
         //trocas e alterações de pivô. Esses valores serão usados para calcular
         //a media.
         double[][][][] valores = new double[11][5][3][5];
+        
+        //coloca os valores iniciais do vetor valores como sendo 0
+        inicializaVetorValores(valores);
         
         //roda 100x para calcular as medias
        for(int i = 0; i < 100; i++)
@@ -84,8 +84,8 @@ public class SortingAlgorithms {
                {
                    //vetor de 500
                    case 0:
-                       int [] v500 = new int[500];
-                       particionaVetor(vetor, v500, v500.length);
+                       //int [] v500 = new int[500];
+                       particionaVetor(vetor, vetorOrdenado, vetorOrdenado.length);
                        
                        //passa por todos os valores de pivo
                        for(int k = 0; k < 5; k++)
@@ -104,10 +104,10 @@ public class SortingAlgorithms {
                                          m = 100;
                                         break;
                                     case 2:
-                                         m = (int)v500.length/3;
+                                         m = (int)vetorOrdenado.length/3;
                                         break;
                                 }
-                                double[] aux = qs.ordenaQuickSort(v500, v500.length, m, k);
+                                double[] aux = qs.ordenaQuickSort(vetorOrdenado, vetorOrdenado.length, m, k);
                                 valores[0][k][l][0] = valores[0][k][l][0] + aux[0];
                                 valores[0][k][l][1] = valores[0][k][l][1] + aux[1];
                                 valores[0][k][l][2] = valores[0][k][l][2] + aux[2];
@@ -507,6 +507,6 @@ public class SortingAlgorithms {
                }
            }
        }
-        
+        menu.show(valores, vetor, vetorOrdenado);
     }
 }

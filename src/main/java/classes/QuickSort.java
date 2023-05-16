@@ -10,17 +10,6 @@ import java.util.Random;
  *
  * @author cauaa
  */
-   /**
-    * int arr[] - array à ser ordenado
-    * int s - elemento inicial do intervalo do array para ser ordenado
-    * int n - elemento final do intervalo do array para ser ordenado
-    * int k - método de escolha do pivot
-    *   0: o primeiro elemento do vetor; 
-    *   1: o ́ultimo elemento do vetor;
-    *   2: o elemento do meio do vetor;
-    *   3: mediana de trˆes elementos; e,
-    *   4: uma posi ̧c ̃ao do vetor escolhida aleatoriamente.
-    */
 public class QuickSort {
   
     private static Random random = new Random();
@@ -33,6 +22,29 @@ public class QuickSort {
     
     private int trocas;
     
+    /**
+     * Funcão principal de ordenação, ela recebe os parametros
+     *  e chama a função quicksort que age de maneira recusiva,
+     *  além de armazenar e retornar as estatísticas de execução.
+     * 
+     * Recebe:
+     * int[] arr - Array a ser ordenado.
+     * int n - Número de elementos no vetor.
+     * int m - A partir de qual tamanho de subarray devemos utilizar
+     *  o método Insertion Sort ao invés do Quick Sort.
+     * int k - Método de escolha do pivot:
+     *   0 - Primeiro elemento.
+     *   1 - Último elemento.
+     *   2 - Elemento do meio.
+     *   3 - Mediana de 3 elementos aleatórios.
+     *   4 - Elemento aleatório.
+     * 
+     * Retorna:
+     * double[] estats - Estatísticas sobre a execução do código,
+     *  incluem, nessa ordem: Tempo de execução(ms), número de acessos ao array,
+     *  número de comparações entre elementos do array, número de pivots escolhidos,
+     *  número de trocas da posição de elementos do vetor.
+    */
     public double[] ordenaQuickSort(int[] arr, int n, int m, int k){
         this.acessos = 0;
         this.comparacoes = 0;
@@ -48,6 +60,24 @@ public class QuickSort {
         return estats;
     }
     
+    /**
+     * Função de ordenação pelo método Quick Sort, ela é chamada
+     *  pela função anterior e utiliza da recursivade para ordenar o array.
+     *  Separa o array principal em dois e chama a sí própria para ordená-lo.
+     * 
+     * Recebe:
+     * int[] arr - Array a ser ordenado
+     * int s - Posição inicial para ordenação.
+     * int n - Posição final para ordenação.
+     * int k - Método de escolha do pivot:
+     *   0 - Primeiro elemento
+     *   1 - Último elemento
+     *   2 - Elemento do meio
+     *   3 - Mediana de 3 elementos aleatórios
+     *   4 - Elemento aleatório
+     * int m - A partir de qual tamanho de subarray devemos utilizar
+     *  o método Insertion Sort ao invés do Quick Sort.
+    */
     public void quickSort(int[] arr, int s, int n, int k, int m) {
         if (s >= n) {
           return;
@@ -78,15 +108,19 @@ public class QuickSort {
         }
         this.pivots++;
         
+        this.acessos++;
         int pivot = arr[pivotIndex];
         int i = s, j = n;
         while (i <= j) {
             while (arr[i] < pivot) {
                 i++;
+                this.acessos++;
                 this.comparacoes++;
             }
+
             while (arr[j] > pivot) {
                 j--;
+                this.acessos++;
                 this.comparacoes++;
             }
             
@@ -100,13 +134,33 @@ public class QuickSort {
         quickSort(arr, s, j, k, m);
         quickSort(arr, i, n, k, m);
       }
-
+    
+    /**
+     * Troca dois elementos do array posição.
+     * 
+     * Recebe:
+     * int[] arr - Array a ser ordenado.
+     * int i - Elemento 1.
+     * int j - Elemento 2.
+     * 
+    */
     private void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
     
+    /**
+     * Escolha a mediana dentre 3 elementos inteiros.
+     * 
+     * Recebe:
+     * int a - Elemento 1.
+     * int b - Elemento 2.
+     * int c - Elemento 3.
+     * 
+     * Retorna:
+     *  Retorna o inteiro que for a mediana.
+    */
     private int medianaTresValores(int a, int b, int c){
         if((a <= b && a >= c) || (a >= b && a <= c )){
             return a;
@@ -116,6 +170,14 @@ public class QuickSort {
         return c;
     }
     
+    /**
+     * Ordena um subarray pelo método de Insertion Sort.
+     * 
+     * Recebe:
+     * int[] arr - Array a ser ordena.
+     * int s - Primeiro elemento do subarray a ser ordenado.
+     * int n - Último elemento do subarray a ser ordenado.
+    */
     public static void insertionSort(int[] arr, int s, int n) {
         if (arr == null || arr.length == 0 || s >= n || s < 0 || n >= arr.length) {
             return;
